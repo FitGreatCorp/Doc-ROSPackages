@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Errors - FitGreat ROS wiki</title>
+  <title>Move base - FitGreat ROS wiki</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Errors";
-    var mkdocs_page_input_path = "API/errors.md";
+    var mkdocs_page_name = "Move base";
+    var mkdocs_page_input_path = "packages/move_base.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -62,15 +62,15 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../packages/airface_drive_model/">airface_drive_model</a>
+    <a class="" href="../airface_drive_model/">airface_drive_model</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../packages/auto_parking/">auto_parking</a>
+    <a class="" href="../auto_parking/">auto_parking</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../packages/auto_tracking/">auto_tracking</a>
+    <a class="" href="../auto_tracking/">auto_tracking</a>
                 </li>
     </ul>
 	    </li>
@@ -102,7 +102,7 @@
     
       
     
-    <li>Errors</li>
+    <li>Move base</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -112,7 +112,41 @@
           <div role="main">
             <div class="section">
               
-                <p>errors.md</p>
+                <h2 id="package-summary">Package Summary<a class="headerlink" href="#package-summary" title="Permanent link">#</a></h2>
+<p>AirFace机器人电机驱动模块，通过调用模块service，驱动机器人运动</p>
+<pre><code>MaintainerStatus: maintained
+Maintainer: Ryan Ren&lt;Ryanren@fitgreat.cn&gt;
+Author: Ryan Ren&lt;Ryanren@fitgreat.cn&gt;
+License: BSD 3-clause. See license attached
+</code></pre>
+<hr />
+<h2 id="1-installation">1. Installation<a class="headerlink" href="#1-installation" title="Permanent link">#</a></h2>
+<pre><code>    sudo apt-get install 'ros-kinetic-airface-drive-model'
+</code></pre>
+<hr />
+<h2 id="2-ros-api">2. ROS API<a class="headerlink" href="#2-ros-api" title="Permanent link">#</a></h2>
+<h3 id="21-published-topics">2.1 Published Topics<a class="headerlink" href="#21-published-topics" title="Permanent link">#</a></h3>
+<p>odom &nbsp;&nbsp;(nav_msgs/Odometry)<br />
+<em><code>publish robot odometry messages</code></em>  </p>
+<h3 id="22-services">2.2 Services<a class="headerlink" href="#22-services" title="Permanent link">#</a></h3>
+<p>set_lift &nbsp;&nbsp;(airface_drive_msgs/setmode) <br />
+<em><code>set robot lift up or down with mode value 1 or 2, while mode value 0 is stop lift</code></em></p>
+<p>set_power_lock &nbsp;&nbsp;(airface_drive_msgs/setmode) <br />
+<em><code>set robot power lock or unlock with mode value 1 or 2</code></em></p>
+<p>get_urgent_status &nbsp;&nbsp;(airface_drive_msgs/getInfo) <br />
+<em><code>get robot urgent button status</code></em></p>
+<p>get_lock_status &nbsp;&nbsp;(airface_drive_msgs/getInfo) <br />
+<em><code>get robot power lock status</code></em></p>
+<h3 id="23-parameters">2.3 Parameters<a class="headerlink" href="#23-parameters" title="Permanent link">#</a></h3>
+<p><strong>Static Parameters</strong><br />
+mode (string, default: preset)<br />
+<em><code>Specify the mode to start camera streams. Mode comprises of height, width and fps. Preset mode enables default values whereas Manual mode enables the specified parameter values.</code></em></p>
+<p><strong>Dynamically Reconfigurable Parameters</strong><br />
+ ~enable_depth (bool, default: True)<br />
+<em><code>Enable Depth</code></em></p>
+<h3 id="24-provided-tf-transforms">2.4 Provided tf Transforms<a class="headerlink" href="#24-provided-tf-transforms" title="Permanent link">#</a></h3>
+<p>camera_link → camera_rgb_frame<br />
+<em><code>Static Transform base frame to color frame.</code></em>  </p>
               
             </div>
           </div>
